@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from './components/Header/Header';
+import Note from "./components/Note/Note";
+import Form from "./components/Form/Form";
+import {useState} from "react";
+import ContextProvider from "./components/context/ContextProvider";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    // Обработка появления модалки с формой добавления записи
+    const [formDisplay, setFormDisplay] = useState(false);
+    const formDisplayHandler = () => {
+        setFormDisplay(prevState => !prevState);
+    }
+
+
+    return (
+    <ContextProvider>
+        <Header/>
+        {formDisplay? <Form onDisplayForm = {formDisplayHandler}/> : null}
+        <Note/>
+    </ContextProvider>
+    );
 }
 
 export default App;
