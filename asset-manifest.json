@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/notes-react-app/static/css/main.96f15e52.css",
+    "main.js": "/notes-react-app/static/js/main.2555b5f7.js",
+    "static/media/bootstrap-icons.woff?": "/notes-react-app/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/notes-react-app/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "index.html": "/notes-react-app/index.html",
+    "main.96f15e52.css.map": "/notes-react-app/static/css/main.96f15e52.css.map",
+    "main.2555b5f7.js.map": "/notes-react-app/static/js/main.2555b5f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96f15e52.css",
+    "static/js/main.2555b5f7.js"
+  ]
+}
