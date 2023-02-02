@@ -6,13 +6,20 @@ const Header = props => {
 
     const context = useContext(Context);
 
+    const onChangeSearchInputHandler = (event) => {
+           if(event.target.value.length === 0){
+               context.setSearchValue(false);
+               return;
+           }
+           context.setSearchValue(event.target.value);
+    }
 
     return(
         <header className="header">
             <h1 className="header__title">Notes App</h1>
 
 
-            <Input type="search" placeholder="Find your note"/>
+            <Input type="search" placeholder="Find your note" onChange={onChangeSearchInputHandler}/>
 
             <div className="header__btn--directions">
 

@@ -9,7 +9,7 @@
     /*background-color: cornflowerblue;*/
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 /*if .column*/
 .note__list.column{
@@ -27,6 +27,7 @@
 .note__item{
     width: 20rem;
     margin-bottom: 2rem;
+    margin-left: 1rem;
     position: relative;
 }
 .note .card__title {
@@ -76,7 +77,9 @@
     color: #fff;
     background-color: var(--primaryColor);
 }
-
+.note__item .btn-fav .fav-active{
+    color: #ee0000;
+}
 .note-filter__select{
     max-width: 10%;
     display: inline-block;
@@ -104,6 +107,15 @@
 }
 .note-filter__btn:hover i{
     color: var(--primaryColor);
+}
+
+@media(max-width: 1060px){
+    .note__list{
+        justify-content: space-between;
+    }
+    .note__item{
+        margin-left: 0;
+    }
 }
 
 @media(max-width: 1020px){

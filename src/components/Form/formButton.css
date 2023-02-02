@@ -1,0 +1,54 @@
+.form-button--add{
+    border: none;
+    background-color: inherit;
+    font-size: 4rem;
+    position: fixed;
+    right: 1rem;
+    top: 20vh;
+    z-index: 10;
+
+}
+.form-button--add.effect{
+    animation: bounce .6s;
+}
+
+.form-button--add i{
+    color: var(--primaryColor);
+}
+
+.form-button--add i:hover, .form-button--add i:focus{
+
+}
+/*.form-button--add:hover{*/
+/*    animation: bounce 1s;*/
+/*}*/
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+
+    }
+
+    40% {
+        transform: translateY(-20px);
+
+    }
+
+    80% {
+        transform: translateY(-10px);
+
+    }
+}
+
+@media(max-width: 860px){
+    .form-button--add{
+        top: 50vh;
+    }
+}
+
+@media(max-width: 670px){
+    .form-button--add{
+        top:55vh;
+        right: 0;
+    }
+}

@@ -33,7 +33,10 @@
     background-color: #F9F7F9;
     padding: 1rem;
 }
-
+.form-btn{
+    width: 30%;
+    height: 3rem;
+}
 @media(max-width: 600px){
     .form{
         max-width: 100%;
