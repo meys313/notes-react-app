@@ -6,14 +6,34 @@ import Context from "../context/context";
 
 const Note = props => {
     const context = useContext(Context);
-    const onChangeSelectHandler = (event) =>{
-        if(event.target.value === "all"){
+    const onChangeSelectHandler = (event) => {
+        if (event.target.value === "all") {
             context.setFavoriteFilter(false)
-        }
-        else if(event.target.value === "favorite"){
+        } else if (event.target.value === "favorite") {
             context.setFavoriteFilter(true);
         }
     }
+
+
+    const SortedNotes = ()=> {
+
+       if (context.sort === "up"){
+           return(
+           context.notes.sort
+           ((a, b) => b.date - a.date).map
+           (note => <NoteItem key={Math.random().toString()} {...note}/>)
+           )
+       } else{
+           return (
+           context.notes.sort
+           ((a, b) => a.date - b.date).map
+           (note => <NoteItem key={Math.random().toString()} {...note}/>)
+           )
+       }
+
+    }
+
+
     return (
         <div className="note">
             <div className="note-filter">
@@ -43,7 +63,11 @@ const Note = props => {
             <div className={`note__list ${context.flexDirection !== 'row'? 'column': ""}`}>
                 {context.notes.length === 0 ?
                     <h4 style={{margin:'0 auto',color:'var(--primaryColor)'}}>didn't find anything</h4> :
-                context.notes.map( note => <NoteItem key={Math.random().toString()} {...note}/>)}
+                    <SortedNotes/>
+                // context.notes.map( note => <NoteItem key={Math.random().toString()} {...note}/>)}
+                //     context.notes.sort((a,b)=> b.date - a.date).map( note => <NoteItem key={Math.random().toString()} {...note}/>)
+
+                }
             </div>
         </div>
 

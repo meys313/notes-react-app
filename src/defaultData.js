@@ -2,6 +2,14 @@
 
 const defaultData = [
     {
+        id: '31335',
+        title: 'notes item and some title',
+        desc: 'With supporting text below as a natural lead-in to additional content.',
+        date: new Date(2023, 1, 1),
+        isFavorite: false
+    },
+
+    {
         id: '3131',
         title: 'Special title treatment',
         desc: 'With supporting text below as a natural lead-in to additional content.',
@@ -57,14 +65,6 @@ const defaultData = [
         title: 'random string',
         desc: 'Money was never a big motivation for me, except as a way to keep score. The real excitement is playing the game.',
         date: new Date(2022, 1, 16),
-        isFavorite: false
-    },
-
-    {
-        id: '3138',
-        title: 'Special title treatment',
-        desc: 'What we think determines what happens to us, so if we want to change our lives, we need to stretch our minds.',
-        date: new Date(2022, 1, 17),
         isFavorite: false
     },
 

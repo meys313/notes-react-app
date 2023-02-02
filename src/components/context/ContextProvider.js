@@ -23,6 +23,7 @@ const ContextProvider = props => {
     const [notes, setNotes] = useState([...defaultData])
 
 
+
     // Добавление, удаление, изменение
     const addNote = newNote => {
         setNotes(prevState => [newNote, ...prevState]);
@@ -58,27 +59,18 @@ const ContextProvider = props => {
 
     // Сортировка
     const [sort, setSort] = useState("up")
-    // use effect для сортировки
-    useEffect(()=>{
-        if(sort === 'down'){
-            setFilteredNotes(prevState => prevState.sort((a,b)=> b.date - a.date))
-        }
-        else{
-            setFilteredNotes(prevState => prevState.sort((a,b)=> a.date - b.date))
-        }
-    }, [filteredNotes, sort])
 
     const contextData = {
         notes: filteredNotes,
-        addNote: addNote,
-        deleteNote: deleteNote,
-        updateNote: updateNote,
-        setSearchValue: setSearchValue,
-        setFavoriteFilter: setFavoriteFilter,
-        flexDirection: flexDirection,
-        sort: sort,
-        setSort:setSort,
-        onFlexDirectionHandler: onFlexDirectionHandler,
+        addNote,
+        deleteNote,
+        updateNote,
+        setSearchValue,
+        setFavoriteFilter,
+        flexDirection,
+        sort,
+        setSort,
+        onFlexDirectionHandler,
     }
 
     return <Context.Provider value={contextData}>{props.children}</Context.Provider>
