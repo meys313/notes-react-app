@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
+import { Link } from "react-router-dom";
 import './header.css';
-import Input from "../../Ui/Input/Input";
+import Input from "../../../../Ui/Input/Input";
 import Context from "../context/context";
 const Header = props => {
 
@@ -16,7 +17,8 @@ const Header = props => {
 
     return(
         <header className="header">
-            <h1 className="header__title">Notes App</h1>
+
+            <Link to={'/notes-react-app/'} className="header__title">Notes App</Link>
 
 
             <Input type="search" placeholder="Find your note" onChange={onChangeSearchInputHandler}/>

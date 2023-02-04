@@ -1,0 +1,15 @@
+.about{
+    height: 100vh;
+    background-color: var(--primaryColor);
+    color:#fff;
+}
+
+.about-content .lead .link-light{
+    margin-right: 1rem;
+}
+
+.about header, .about-content, .about-footer{
+    animation: content-appear 2s ease-out forwards;
+}
+
+

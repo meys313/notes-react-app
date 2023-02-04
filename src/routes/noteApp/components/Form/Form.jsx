@@ -1,7 +1,7 @@
 import React, {useContext, useRef} from "react";
 import './form.css';
-import Input from "../../Ui/Input/Input";
-import Modal from "../../Ui/Modal/Modal";
+import Input from "../../../../Ui/Input/Input";
+import Modal from "../../../../Ui/Modal/Modal";
 import Context from "../context/context";
 const Form = props => {
 

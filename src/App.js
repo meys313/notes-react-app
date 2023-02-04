@@ -1,25 +1,34 @@
-import Header from './components/Header/Header';
-import Note from "./components/Note/Note";
-import Form from "./components/Form/Form";
-import FormButton from "./components/Form/FormButton";
-import {useState} from "react";
-import ContextProvider from "./components/context/ContextProvider";
+import React from 'react';
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import Main from "./routes/Main/Main";
+import About from "./routes/About/About";
+import NoteApp from "./routes/noteApp/NoteApp";
+import NotFound from "./routes/notFound/notFound";
+
 function App() {
 
-    // Обработка появления модалки с формой добавления записи
-    const [formDisplay, setFormDisplay] = useState(false);
-    const formDisplayHandler = () => {
-        setFormDisplay(prevState => !prevState);
-    }
-
-
+    const router = createBrowserRouter([
+        {
+            path:"/notes-react-app",
+            element: <Main/>
+        },
+        {
+            path:'/notes-react-app/about/',
+            element: <About/>
+        },
+        {
+            path: "/notes-react-app/note/",
+            element: <NoteApp/>
+        },
+        {
+            path: "*",
+            element: <NotFound/>
+        }
+    ])
     return (
-    <ContextProvider>
-        <Header/>
-        <FormButton onDisplayForm = {formDisplayHandler}/>
-        {formDisplay? <Form onDisplayForm = {formDisplayHandler}/> : null}
-        <Note/>
-    </ContextProvider>
+        <>
+            <RouterProvider router={router} basename={'/notes-react-app'}/>
+        </>
     );
 }
 

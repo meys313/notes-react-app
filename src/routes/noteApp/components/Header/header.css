@@ -7,8 +7,10 @@
 }
 .header__title{
     color: var(--primaryColor);
+    font-weight: bold;
     font-size: 30px;
     flex-basis: auto;
+    text-decoration: none;
 }
 .header input{
     flex-basis: auto;
