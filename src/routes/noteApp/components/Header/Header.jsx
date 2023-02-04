@@ -18,7 +18,7 @@ const Header = props => {
     return(
         <header className="header">
 
-            <Link to={'/notes-react-app/'} className="header__title">Notes App</Link>
+            <Link to={'/'} className="header__title">Notes App</Link>
 
 
             <Input type="search" placeholder="Find your note" onChange={onChangeSearchInputHandler}/>

@@ -28,8 +28,8 @@ const About = props => {
 
                     </p>
                     <p className="lead">
-                        <Link to={'/notes-react-app'} className="link-light">back</Link>
-                        <Link to={'/notes-react-app/note'} className="btn btn-lg btn-light fw-bold border-white bg-white">Open Note</Link>
+                        <Link to={'/'} className="link-light">back</Link>
+                        <Link to={'/note'} className="btn btn-lg btn-light fw-bold border-white bg-white">Open Note</Link>
                     </p>
                 </div>
 

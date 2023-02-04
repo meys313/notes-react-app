@@ -21,7 +21,7 @@ const Main = props => {
                             Download, edit the text, and add your own fullscreen background photo to make it your
                             own.</p>
                         <p className="lead">
-                            <Link to={'/notes-react-app/note/'} className="btn btn-lg btn-light fw-bold border-white bg-white">Open Note</Link>
+                            <Link to={'note/'} className="btn btn-lg btn-light fw-bold border-white bg-white">Open Note</Link>
                         </p>
                     </div>
 

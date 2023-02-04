@@ -9,25 +9,25 @@ function App() {
 
     const router = createBrowserRouter([
         {
-            path:"/notes-react-app",
+            path:"/",
             element: <Main/>
         },
         {
-            path:'/notes-react-app/about/',
+            path:'about/',
             element: <About/>
         },
         {
-            path: "/notes-react-app/note/",
+            path: "note/",
             element: <NoteApp/>
         },
         {
             path: "*",
             element: <NotFound/>
         }
-    ])
+    ], {basename:'/notes-react-app'})
     return (
         <>
-            <RouterProvider router={router} basename={'/notes-react-app'}/>
+            <RouterProvider router={router}/>
         </>
     );
 }
