@@ -1,6 +1,6 @@
 
 
-const defaultData = [
+const defaultDataForNotes = [
     {
         id: '31335',
         title: 'notes item and some title',
@@ -70,4 +70,4 @@ const defaultData = [
 
 ]
 
-export default defaultData;
+export default defaultDataForNotes;

@@ -1,7 +1,8 @@
 import React, {useEffect} from "react";
+import {useSelector} from "react-redux";
 import {useState} from "react";
 import Context from "./context";
-import defaultData from "../../defaultData";
+
 
 
 const ContextProvider = props => {
@@ -18,7 +19,7 @@ const ContextProvider = props => {
 
     }
 
-
+    const defaultData = useSelector(state => state.notes.defaultData);
     // state всех записей
     const [notes, setNotes] = useState([...defaultData])
 
