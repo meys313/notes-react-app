@@ -4,7 +4,7 @@
     color:#fff;
 }
 .main header, .main-content, .main-footer{
-    animation: content-appear 3s ease-out forwards;
+    animation: content-appear 1s ease-out forwards;
 }
 
 .main__link{

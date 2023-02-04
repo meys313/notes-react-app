@@ -23,7 +23,6 @@ const ContextProvider = props => {
     const [notes, setNotes] = useState([...defaultData])
 
 
-
     // Добавление, удаление, изменение
     const addNote = newNote => {
         setNotes(prevState => [newNote, ...prevState]);

@@ -1,0 +1,19 @@
+.showNote{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.showNote-title {
+    color: var(--primaryColor);
+}
+.showNote-time{
+    color: #536872;
+}
+.showNote-content p{
+    font-size: 18px;
+}
+.showNote-header, .showNote-content{
+    animation: content-appear .5s ease-out forwards;
+}
