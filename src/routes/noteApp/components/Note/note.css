@@ -3,6 +3,7 @@
     margin-top: 2rem;
 }
 .note__list{
+    animation: content-appear 1s ease-out forwards;
     max-width: 95%;
     margin: 3rem auto 0 auto;
 

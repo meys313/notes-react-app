@@ -9,7 +9,7 @@
 }
 
 .about header, .about-content, .about-footer{
-    animation: content-appear 2s ease-out forwards;
+    animation: content-appear 3s ease-out forwards;
 }
 
 
