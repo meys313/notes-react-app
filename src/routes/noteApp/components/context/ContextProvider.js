@@ -25,20 +25,20 @@ const ContextProvider = props => {
 
 
     // Добавление, удаление, изменение
-    const addNote = newNote => {
-        setNotes(prevState => [newNote, ...prevState]);
-    }
+    // const addNote = newNote => {
+    //     setNotes(prevState => [newNote, ...prevState]);
+    // }
 
-    const deleteNote = noteId => {
-        const updatedNotes = notes.filter(note => note.id !== noteId);
-        setNotes(updatedNotes);
-    }
+    // const deleteNote = noteId => {
+    //     const updatedNotes = notes.filter(note => note.id !== noteId);
+    //     setNotes(updatedNotes);
+    // }
 
-    const updateNote = (noteId, update) => {
-        setNotes(
-            prevState => prevState.map((note) => note.id === noteId? {...note, ...update}: note)
-        )
-    }
+    // const updateNote = (noteId, update) => {
+    //     setNotes(
+    //         prevState => prevState.map((note) => note.id === noteId? {...note, ...update}: note)
+    //     )
+    // }
 
 
     // фильтры
