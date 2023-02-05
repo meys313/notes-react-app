@@ -1,22 +1,29 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Main from "./routes/Main/Main";
-import About from "./routes/About/About";
 import NotesApp from "./routes/noteApp/path/NotesApp";
 import IndexNotes from "./routes/noteApp/indexNotes";
 import NotFound from "./routes/notFound/notFound";
 import ShowNote from "./routes/noteApp/path/ShowNote/ShowNote";
+import MainContent from "./routes/Main/mainContent";
+import AboutContent from "./routes/Main/aboutContent";
 
 function App() {
 
     const router = createBrowserRouter([
         {
             path:"/",
-            element: <Main/>
-        },
-        {
-            path:'about/',
-            element: <About/>
+            element: <Main/>,
+            children: [
+                {
+                    path: "",
+                    element: <MainContent/>
+                },
+                {
+                    path: "about/",
+                    element: <AboutContent/>
+                }
+            ]
         },
         {
             path: "note/",

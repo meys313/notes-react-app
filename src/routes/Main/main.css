@@ -12,6 +12,11 @@
     text-decoration: none;
     font-size: 18px;
 }
+
+.main-content .lead .link-light{
+    margin-right: 1rem;
+}
+
 .main__link:hover{
     color: inherit;
 }

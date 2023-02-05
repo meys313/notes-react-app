@@ -1,37 +1,28 @@
-import React, {useContext} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useSelector, useDispatch} from "react-redux";
+import {setNotesFiltersStates} from "../../../../store/NotesSlice";
 import './note.css';
 import NoteItem from "./NoteItem";
-import Context from "../context/context";
+
 
 
 const Note = props => {
-    const context = useContext(Context);
+    const states = useSelector(state=> state.notes)
+    const dispatch = useDispatch();
     const onChangeSelectHandler = (event) => {
         if (event.target.value === "all") {
-            context.setFavoriteFilter(false)
+            dispatch(setNotesFiltersStates({type:'favorite', data: false}))
         } else if (event.target.value === "favorite") {
-            context.setFavoriteFilter(true);
+            dispatch(setNotesFiltersStates({type:'favorite', data: true}))
         }
     }
-
-
-    const SortedNotes = ()=> {
-
-       if (context.sort === "up"){
-           return(
-           context.notes.sort
-           ((a, b) => b.date - a.date).map
-           (note => <NoteItem key={Math.random().toString()} {...note}/>)
-           )
-       } else{
-           return (
-           context.notes.sort
-           ((a, b) => a.date - b.date).map
-           (note => <NoteItem key={Math.random().toString()} {...note}/>)
-           )
-       }
-
-    }
+    const [filteredNotes, setFilteredNotes] = useState(states.notes)
+    useEffect(()=>{
+        setFilteredNotes(states.notes.filter(note=>
+            (states.favoriteFilter?  note.isFavorite === true: note) &&
+            (states.searchValue? note.title.toLowerCase().trim().includes(states.searchValue.toLowerCase().trim()): note)
+        ))
+    }, [states.notes, states.favoriteFilter, states.searchValue])
 
 
     return (
@@ -44,29 +35,25 @@ const Note = props => {
                 <div className="note-filter__date">
                     <i className="bi bi-calendar3-week note-filter__icon"></i>
 
-                    <button className="note-filter__btn" onClick={()=> context.setSort('up')}>
-                        {context.sort === 'up' ?
-                            <i className="bi bi-arrow-up-circle-fill" style={{color:"var(--primaryColor)"}}></i>:
-                            <i className="bi bi-arrow-up-circle"></i>
-                        }
+                    <button className="note-filter__btn"
+                            // onClick={()=> dispatch(setSort({sort: 'up'}))}
+                    >
+                            <i className="bi bi-arrow-up-circle-fill" style={{color:"var(--primaryColor)"}}></i>
+
                     </button>
 
-                    <button className="note-filter__btn" onClick={()=> context.setSort('down')}>
-                        {context.sort === 'down' ?
-                            <i className="bi bi-arrow-down-circle-fill" style={{color:"var(--primaryColor)"}}></i>:
+                    <button className="note-filter__btn"
+                            // onClick={()=> dispatch(setSort({sort: 'down'}))}
+                    >
                             <i className="bi bi-arrow-down-circle"></i>
-                        }
                     </button>
                 </div>
             </div>
 
-            <div className={`note__list ${context.flexDirection !== 'row'? 'column': ""}`}>
-                {context.notes.length === 0 ?
+            <div className={`note__list ${states.flexDirection !== 'row'? 'column': ""}`}>
+                {filteredNotes === 0 ?
                     <h4 style={{margin:'0 auto',color:'var(--primaryColor)'}}>didn't find anything</h4> :
-                    <SortedNotes/>
-                // context.notes.map( note => <NoteItem key={Math.random().toString()} {...note}/>)}
-                //     context.notes.sort((a,b)=> b.date - a.date).map( note => <NoteItem key={Math.random().toString()} {...note}/>)
-
+                    filteredNotes.map(note => <NoteItem key={Math.random().toString()} {...note}/>)
                 }
             </div>
         </div>

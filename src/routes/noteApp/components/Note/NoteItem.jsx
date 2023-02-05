@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {useDispatch} from "react-redux";
+import {deleteNote, updateNote} from "../../../../store/NotesSlice";
 import { useNavigate } from "react-router-dom";
 import './note.css';
-import Context from "../context/context";
+
 
 const NoteItem = props => {
     const {id, title, desc, date, isFavorite} = props
-    const context = useContext(Context);
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const onClickItemHandler = () => {
         navigate(`${id}`)
     }
@@ -15,26 +17,28 @@ const NoteItem = props => {
             <div className="card-body">
                 <h5 className="card-title">{title.length >=40 ? `${title.slice(0,40)} ......`  : title}</h5>
                 <p className="card-text">{desc.length >=140 ? `${desc.slice(0,140)} ......`  : desc}.</p>
-                <p className="note__date">{date.toLocaleString()}</p>
+                <p className="note__date">{date}</p>
             </div>
             <button
                 type="button"
                 className="btn btn-outline-dark btn-del"
                 onClick={(e)=> {
                     e.stopPropagation()
-                    return context.deleteNote(id)
+                    return dispatch(deleteNote({id: id}))
                     }
-            }
+                 }
             >
                 <i className="bi bi-x-lg"></i>
             </button>
 
 
-            <button className="btn btn-fav" onClick={(e)=> {
-                e.stopPropagation()
-                return  context.updateNote(id, {isFavorite: !isFavorite})
+            <button className="btn btn-fav"
+                onClick={(e)=> {
+                    e.stopPropagation()
+                    return  dispatch(updateNote({id: id, updateData: {isFavorite: !isFavorite}}))
+                    }
                 }
-            }>
+            >
                 {!isFavorite ? <i className="bi bi-heart"></i> : <i className="bi bi-heart-fill fav-active"></i>}
             </button>
         </div>

@@ -5,6 +5,9 @@ const notesSlice = createSlice({
     name: 'notesSlice',
     initialState: {
         notes: defaultDataForNotes,
+        searchValue: false,
+        favoriteFilter: false,
+        flexDirection: 'row',
         sort: "up",
     },
     reducers: {
@@ -19,11 +22,28 @@ const notesSlice = createSlice({
                 note=> note.id === action.payload.id ? {...note, ...action.payload.updateData}: note
             )
         },
-        sortUpdate(state,action){
+        setFlexDirection(state, action){
+            if(action.payload.direction === 'row'){
+               state.flexDirection = 'row';
+            }
+            else if(action.payload.direction === 'column'){
+                state.flexDirection = 'column';
+            }
+        },
+        setSort(state,action){
             state.sort = action.payload.sort
+        },
+        setNotesFiltersStates(state, action){
+           if(action.payload.type === 'search'){
+               state.searchValue = action.payload.data
+           }
+           if(action.payload.type === 'favorite'){
+               state.favoriteFilter = action.payload.data
+           }
         }
     }
 
 });
 
+export const {addNote, deleteNote, updateNote, setSort,setFlexDirection, setNotesFiltersStates } = notesSlice.actions;
 export default notesSlice.reducer;

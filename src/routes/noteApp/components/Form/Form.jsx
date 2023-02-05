@@ -1,11 +1,14 @@
-import React, {useContext, useRef} from "react";
+import React, {useRef} from "react";
+import {useDispatch} from "react-redux";
+import {addNote} from "../../../../store/NotesSlice";
 import './form.css';
 import Input from "../../../../Ui/Input/Input";
 import Modal from "../../../../Ui/Modal/Modal";
-import Context from "../context/context";
+
 const Form = props => {
 
-    const context = useContext(Context);
+
+    const dispatch = useDispatch();
 
     // рефы для инпутов
     const titleRef = useRef();
@@ -16,10 +19,11 @@ const Form = props => {
             id: Math.random().toString(),
             title: titleRef.current.value,
             desc: descRef.current.value,
-            date: new Date(),
+            date: new Date().toLocaleString(),
             isFavorite: false
         }
-        context.addNote(newNote);
+
+        dispatch(addNote({newNote: newNote}))
         props.onDisplayForm();
     }
     return(

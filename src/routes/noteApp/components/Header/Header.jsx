@@ -1,18 +1,21 @@
-import React, {useContext} from "react";
+import React from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {setFlexDirection, setNotesFiltersStates} from "../../../../store/NotesSlice";
 import { Link } from "react-router-dom";
 import './header.css';
 import Input from "../../../../Ui/Input/Input";
-import Context from "../context/context";
 const Header = props => {
 
-    const context = useContext(Context);
+
+    const states = useSelector(state=> state.notes);
+    const dispatch = useDispatch();
 
     const onChangeSearchInputHandler = (event) => {
-           if(event.target.value.length === 0){
-               context.setSearchValue(false);
-               return;
-           }
-           context.setSearchValue(event.target.value);
+        if(event.target.value.length === 0){
+            dispatch(setNotesFiltersStates({type:'search', data: false}))
+            return;
+        }
+        dispatch(setNotesFiltersStates({type:'search', data: event.target.value}))
     }
 
     return(
@@ -21,24 +24,26 @@ const Header = props => {
             <Link to={'/'} className="header__title">Notes App</Link>
 
 
-            <Input type="search" placeholder="Find your note" onChange={onChangeSearchInputHandler}/>
+            <Input type="search" placeholder="Find your note"
+                   onChange={onChangeSearchInputHandler}
+            />
 
             <div className="header__btn--directions">
 
                 <button type="button"
                 className="btn btn-outline-dark"
-                style={context.flexDirection === 'row' ?
+                style={states.flexDirection === 'row' ?
                     {backgroundColor:'var(--primaryColor)', color:"#fff", borderColor: "var(--primaryColor)"}: {}}
-                        onClick={()=> context.onFlexDirectionHandler("row")}
+                        onClick={()=> dispatch(setFlexDirection({direction: "row"}))}
                 ><i className="bi bi-grid-3x2-gap-fill"></i></button>
 
 
 
                 <button type="button"
-                    style={context.flexDirection === 'column' ?
+                    style={states.flexDirection === 'column' ?
                         {backgroundColor:'var(--primaryColor)', color:"#fff", borderColor: "var(--primaryColor)"}: {}}
                     className="btn btn-outline-dark"
-                        onClick={()=> context.onFlexDirectionHandler("column")}
+                        onClick={()=> dispatch(setFlexDirection({direction: 'column'}))}
                 ><i className="bi bi-list"></i></button>
             </div>
 

@@ -1,17 +1,16 @@
 import {Link, useParams} from "react-router-dom";
-import {useContext} from "react";
-import Context from "../../components/context/context";
 import './showNote.css';
 import NotFound from "../../../notFound/notFound";
+import {useSelector} from "react-redux";
 
 
 
 const ShowNote = props => {
-
+    const states = useSelector(state => state.notes)
     const params = useParams();
 
-    const context = useContext(Context)
-    const noteItem = context.notes.filter(note => note.id === params.noteId)[0]
+
+    const noteItem = states.notes.filter(note => note.id === params.noteId)[0]
 
     if(!noteItem){
        return (
