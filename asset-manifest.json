@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/notes-react-app/static/css/main.f561a0d5.css",
-    "main.js": "/notes-react-app/static/js/main.ea757e27.js",
+    "main.css": "/notes-react-app/static/css/main.d1cbad5b.css",
+    "main.js": "/notes-react-app/static/js/main.4bf69715.js",
     "static/media/bootstrap-icons.woff?": "/notes-react-app/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
     "static/media/bootstrap-icons.woff2?": "/notes-react-app/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
     "index.html": "/notes-react-app/index.html",
-    "main.f561a0d5.css.map": "/notes-react-app/static/css/main.f561a0d5.css.map",
-    "main.ea757e27.js.map": "/notes-react-app/static/js/main.ea757e27.js.map"
+    "main.d1cbad5b.css.map": "/notes-react-app/static/css/main.d1cbad5b.css.map",
+    "main.4bf69715.js.map": "/notes-react-app/static/js/main.4bf69715.js.map"
   },
   "entrypoints": [
-    "static/css/main.f561a0d5.css",
-    "static/js/main.ea757e27.js"
+    "static/css/main.d1cbad5b.css",
+    "static/js/main.4bf69715.js"
   ]
 }
