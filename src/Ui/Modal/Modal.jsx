@@ -11,8 +11,8 @@ const BackDrop = props => {
 const ModalWindow = props => {
     const modalConfig = props.modalConfig;
     return <div className={`${props.classes} modal-window`}>
-        { modalConfig.type === 'new_note' ?
-            <h1 className="modal-title" style={{color:"var(--primaryColor)"}}>new note</h1> : null}
+        { modalConfig.type ?
+            <h1 className="modal-title" style={{color:"var(--primaryColor)"}}>{modalConfig.type}</h1> : null}
             {props.children}
     </div>
 }

@@ -17,3 +17,8 @@
 .showNote-header, .showNote-content{
     animation: content-appear .5s ease-out forwards;
 }
+
+.showNote .form-btn--add{
+    width: auto;
+    margin-bottom: 1rem;
+}
